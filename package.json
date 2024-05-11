@@ -1,0 +1,25 @@
+{
+  "name": "image-cli",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/yargs": "^17.0.32"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "bin": {
+    "analyseFiles": "./src/analyse.ts",
+    "convertFiles": "./src/convert.ts"
+  },
+  "dependencies": {
+    "@types/blessed": "^0.1.25",
+    "@types/gm": "^1.25.4",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
+    "console-table-printer": "^2.12.0",
+    "gm": "^1.25.0",
+    "yargs": "^17.7.2"
+  }
+}
