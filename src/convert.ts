@@ -34,7 +34,10 @@ if (values.path) {
         charLength: { "👍": 2 },
     });
     getAndConvertFiles(values.path).then(result => {
-        if (result) {      
+        if (result) {
+            let savedData = 0;
+            let totalSizeBeforeConvert = 0;
+            let totalSizeAfterConvert = 0;
             result.forEach(r => {
                 table.addRow({
                     name: r.name,
@@ -45,8 +48,14 @@ if (values.path) {
                     result: `${r.result/1000 > 0 ? '👍'+ 'Save ' + r.result/1000 + ' Kb' : 'Not saving'}`,
                     // equality: `${r.equality}`
                 });
+                totalSizeBeforeConvert += r.beforeSize / 1000;
+                totalSizeAfterConvert += r.afterSize / 1000;
+                savedData += r.result / 1000;
             });
             table.printTable();
+            console.log('Total size before convert: %d Kb', totalSizeBeforeConvert);
+            console.log('Total size after convert: %d Kb', totalSizeAfterConvert);
+            console.log('Total saved data: %d Kb', savedData);
         }
     });
 }
